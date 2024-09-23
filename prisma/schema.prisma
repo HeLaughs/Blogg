@@ -12,3 +12,25 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Post {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  slug        String   @unique
+  title       String
+  image       String
+  description String
+  markdown    String
+  published   Boolean  @default(false)
+  featured    Boolean  @default(false)
+
+  category   Categories @relation(fields: [categoryId], references: [id])
+  categoryId Int
+}
+
+model Categories {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+
+  posts Post[]
+}
