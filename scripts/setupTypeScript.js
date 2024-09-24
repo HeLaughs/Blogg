@@ -94,7 +94,7 @@ const svelteConfig = `import sveltePreprocess from 'svelte-preprocess';
 export default {
   preprocess: sveltePreprocess()
 };
-`
+`https://github.com/BarasaJnr/Blogg
 const svelteConfigPath =  path.join(projectRoot, "svelte.config.js")
 fs.writeFileSync(svelteConfigPath, svelteConfig)
 
